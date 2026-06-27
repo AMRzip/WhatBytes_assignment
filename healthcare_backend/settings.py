@@ -32,7 +32,11 @@ REST_FRAMEWORK = {
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-
+CSRF_TRUSTED_ORIGINS = os.getenv(
+    "CSRF_TRUSTED_ORIGINS",
+    "http://localhost:8000," \
+    "http://127.0.0.1:8000",
+).split(",")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJ_SECRET", "unsafe-dev-secret-key")
